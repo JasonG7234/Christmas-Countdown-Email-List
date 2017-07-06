@@ -13,8 +13,9 @@ function sendChristmasCountdownDailyEmail() {
   var weeks = Math.floor(countdown / (1000 * 60 * 60 * 24 * 7));
   var weeksAndDays = days - (weeks * 7);
   
-  //Prepare text and emails
+  //Prepare email content and text
   var text = 'There are only ' + days + ' days until Christmas!!!';
+  var subject = 'Daily Christmas Countdown - ' + days + ' days until Christmas!';
   var message;
   var spreadSheet = SpreadsheetApp.getActiveSheet();
   var dataRange = spreadSheet.getDataRange();
@@ -23,7 +24,6 @@ function sendChristmasCountdownDailyEmail() {
     (function() {
       var row = data[i];
       var emailAddress = row[1];
-      var subject = 'Daily Christmas Countdown - ' + days + ' days until Christmas!';
       var name = row[0];
       //Prints out number of months until Christmas if it's the 25th
       if (sysdate.getDate() == 25 && sysdate.getMonth() != 11) {
