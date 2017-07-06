@@ -42,7 +42,11 @@ function sendChristmasCountdownDailyEmail() {
         } else if (weeksAndDays == 0) {
          message = name + ',' + '\n\n' + text + '\n\n' + 'Or, there are ' + weeks + ' weeks until Christmas!';
         } else {
-         message = name + ',' + '\n\n' + text + '\n\n' + 'Or, there are ' + weeks + ' weeks and ' + weeksAndDays + ' days until Christmas!';
+          if (weeksAndDays == 1) {
+            message = name + ',' + '\n\n' + text + '\n\n' + 'Or, there are ' + weeks + ' weeks and 1 day until Christmas!';
+          } else {
+            message = name + ',' + '\n\n' + text + '\n\n' + 'Or, there are ' + weeks + ' weeks and ' + weeksAndDays + ' days until Christmas!';
+          }
         }
       }
       var options = {};
